@@ -12,7 +12,7 @@ public class WorldTags : UdonSharpBehaviour
     private string[] displayNamesToApplyTo;
 	
     [SerializeField]
-    private float HeightMultiplier = 0f;
+    private float HeightMultiplier = 0.9f;
 
     private GameObject InstantiatedObj;
 
@@ -32,9 +32,9 @@ public class WorldTags : UdonSharpBehaviour
         if (InstantiatedObj != null)
         {
             var HeadPos = Networking.LocalPlayer.GetBonePosition(HumanBodyBones.Head);
-            var ChestPos = Networking.LocalPlayer.GetBonePosition(HumanBodyBones.Chest);
+            var FootPos = Networking.LocalPlayer.GetBonePosition(HumanBodyBones.Hips);
 
-            InstantiatedObj.transform.position = new Vector3(HeadPos.x, HeadPos.y, HeadPos.z + (Vector3.Distance(ChestPos, HeadPos) * HeightMultiplier));
+            InstantiatedObj.transform.position = new Vector3(HeadPos.x, HeadPos.y, HeadPos.z + (Vector3.Distance(FootPos, HeadPos) * HeightMultiplier));
         }
     }
 }
