@@ -11,7 +11,7 @@ public class WorldTags : UdonSharpBehaviour
     [SerializeField]
     private string[] displayNamesToApplyTo;
 	
-	[SerializeField]
+    [SerializeField]
     private int HeightMultiplier = 0;
 
     private GameObject InstantiatedObj;
