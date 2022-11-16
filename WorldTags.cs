@@ -12,7 +12,7 @@ public class WorldTags : UdonSharpBehaviour
     private string[] displayNamesToApplyTo;
 	
     [SerializeField]
-    private float HeightMultiplier = 0.5f;
+    private float HeightMultiplier = 0.7f;
 
     private GameObject InstantiatedObj;
 
