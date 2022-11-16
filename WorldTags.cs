@@ -32,9 +32,9 @@ public class WorldTags : UdonSharpBehaviour
         if (InstantiatedObj != null)
         {
             var HeadPos = Networking.LocalPlayer.GetBonePosition(HumanBodyBones.Head);
-            var FootPos = Networking.LocalPlayer.GetBonePosition(HumanBodyBones.Hips);
+            var HipsPos = Networking.LocalPlayer.GetBonePosition(HumanBodyBones.Hips);
 
-            InstantiatedObj.transform.position = new Vector3(HeadPos.x, HeadPos.y, HeadPos.z + (Vector3.Distance(FootPos, HeadPos) * HeightMultiplier));
+            InstantiatedObj.transform.position = new Vector3(HeadPos.x, HeadPos.y, HeadPos.z + (Vector3.Distance(HipsPos, HeadPos) * HeightMultiplier));
         }
     }
 }
