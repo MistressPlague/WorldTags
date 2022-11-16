@@ -1,4 +1,3 @@
-﻿
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
@@ -11,6 +10,9 @@ public class WorldTags : UdonSharpBehaviour
 
     [SerializeField]
     private string[] displayNamesToApplyTo;
+	
+	[SerializeField]
+    private int HeightMultiplier = 0;
 
     private GameObject InstantiatedObj;
 
@@ -32,7 +34,7 @@ public class WorldTags : UdonSharpBehaviour
             var HeadPos = Networking.LocalPlayer.GetBonePosition(HumanBodyBones.Head);
             var ChestPos = Networking.LocalPlayer.GetBonePosition(HumanBodyBones.Chest);
 
-            InstantiatedObj.transform.position = new Vector3(HeadPos.x, HeadPos.y, HeadPos.z + Vector3.Distance(ChestPos, HeadPos));
+            InstantiatedObj.transform.position = new Vector3(HeadPos.x, HeadPos.y, HeadPos.z + (Vector3.Distance(ChestPos, HeadPos) * HeightMultiplier));
         }
     }
 }
